@@ -185,7 +185,7 @@ void printOrderStats_Seq(const std::vector<uint64_t> &orderBook) {
         stock.orderCount++;
     }
     
-    std::ofstream outFile("output/seq1/stats.txt");
+    std::ofstream outFile("output/seq/stats.txt");
     outFile << std::fixed << std::setprecision(4);
     
     for (auto& pair : stockMap) {
