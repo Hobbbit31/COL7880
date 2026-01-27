@@ -60,73 +60,6 @@ inline OrderBookEntry_Par decodePacket_Par(uint64_t packet) {
     };
 }
 
-// void updateDisplay_Par(const std::vector<uint64_t> &orderBook, int32_t freq) {
-//     size_t n = orderBook.size();
-//     if (n == 0) return;
-
-//     // Phase 1: Parallel Pre-decoding using Guided Scheduling [cite: 44, 71]
-//     // Guided helps because bit-unstuffing time varies per packet.
-//     std::vector<OrderBookEntry_Par> decodedEntries(n);
-//     #pragma omp parallel for schedule(guided)
-//     for (size_t i = 0; i < n; ++i) {
-//         decodedEntries[i] = decodePacket_Par(unstuffBits_Par(orderBook[i]));
-//     }
-
-//     // Phase 2: State Updates and Task-based I/O
-//     #pragma omp parallel
-//     {
-//         #pragma omp single
-//         {
-//             std::unordered_map<uint32_t, StockInfo_Par> stockMap;
-//             int snapCount = 0;
-
-//             for (size_t i = 0; i < n; i++) {
-//                 const auto& entry = decodedEntries[i];
-//                 StockInfo_Par& stock = stockMap[entry.stockID];
-//                 stock.stockID = entry.stockID;
-                
-//                 if (entry.orderType) { // Sell
-//                     stock.lastSellValue = entry.orderValue;
-//                 } else { // Buy
-//                     stock.lastBuyValue = entry.orderValue;
-//                 }
-
-//                 // Snapshot trigger [cite: 35, 36]
-//                 if ((i + 1) % freq == 0 || i == n - 1) {
-//                     auto snap = std::make_shared<std::vector<StockInfo_Par>>();
-//                     snap->reserve(stockMap.size());
-//                     for (auto const& [id, info] : stockMap) snap->push_back(info);
-
-//                     // Requirement: Generate 1 + floor(n/freq) files 
-//                     bool needsExtra = (i == n - 1 && n % freq == 0);
-
-//                     #pragma omp task firstprivate(snap, snapCount, needsExtra)
-//                     {
-//                         auto writeFunc = [&](int count) {
-//                             // Sort by spread descending, tie-break by stockID descending [cite: 38]
-//                             std::sort(snap->begin(), snap->end(), [](const StockInfo_Par& a, const StockInfo_Par& b) {
-//                                 int spreadA = std::abs((int)a.lastSellValue - (int)a.lastBuyValue);
-//                                 int spreadB = std::abs((int)b.lastSellValue - (int)b.lastBuyValue);
-//                                 if (spreadA != spreadB) return spreadA > spreadB;
-//                                 return a.stockID > b.stockID;
-//                             });
-                            
-//                             std::ofstream outFile("output/par/snap_" + std::to_string(count) + ".txt"); 
-//                             for (const auto& s : *snap) {
-//                                 outFile << s.stockID << " " << (int)s.lastSellValue << " " 
-//                                         << (int)s.lastBuyValue << " " 
-//                                         << std::abs((int)s.lastSellValue - (int)s.lastBuyValue) << "\n"; 
-//                             }
-//                         };
-//                         writeFunc(snapCount);
-//                         if (needsExtra) writeFunc(snapCount + 1); // Mandatory extra snap 
-//                     }
-//                     snapCount++;
-//                 }
-//             }
-//         } 
-//     }
-// }
 
 void updateDisplay_Par(const std::vector<uint64_t> &orderBook, int32_t freq) {
     size_t n = orderBook.size();
@@ -180,8 +113,6 @@ void updateDisplay_Par(const std::vector<uint64_t> &orderBook, int32_t freq) {
     }
 
 
-
-
     // Phase 2: Serial Map Updates & Task-based Snapshots
     #pragma omp parallel
     {
@@ -208,7 +139,7 @@ void updateDisplay_Par(const std::vector<uint64_t> &orderBook, int32_t freq) {
                     if (entry.orderValue > stock.maxBuyValue) stock.maxBuyValue = entry.orderValue;
                 }
                 
-                // Snapshot trigger [cite: 36]
+                // Snapshot trigger 
                 if ((i + 1) % freq == 0 || i == n - 1) {
                     auto snap = std::make_shared<std::vector<StockInfo_Par>>();
                     snap->reserve(stockMap.size());
@@ -252,75 +183,48 @@ int64_t totalAmountTraded_Par(const std::vector<uint64_t> &orderBook) {
     int64_t total = 0;
     size_t n = orderBook.size();
 
+    
+
+
     // #pragma omp parallel
     // {
-    //     int64_t local_acc = 0; // Single local accumulator is usually enough for ILP
-        
-    //     // Guided scheduling helps if unstuffBits_Par execution time varies per packet
-    //     #pragma omp for schedule(guided) nowait
-    //     for (size_t i = 0; i < (n / 2) * 2; i += 2) {
-    //         // Packet 1
-    //         uint64_t u1 = unstuffBits_Par(orderBook[i]);
-    //         OrderBookEntry_Par e1 = decodePacket_Par(u1);
-    //         local_acc += (int64_t)e1.orderQty * e1.orderValue;
+    //     // Using two local accumulators can help the CPU avoid dependency stalls
+    //     int64_t acc1 = 0;
+    //     int64_t acc2 = 0 , acc3=0, acc4=0;
 
-    //         // Packet 2
-    //         uint64_t u2 = unstuffBits_Par(orderBook[i+1]);
-    //         OrderBookEntry_Par e2 = decodePacket_Par(u2);
-    //         local_acc += (int64_t)e2.orderQty * e2.orderValue;
+
+    //     // Unrolling by 4 for better ILP
+    //     #pragma omp for schedule(guided) nowait
+    //     for (size_t i = 0; i < (n / 4) * 4; i += 4) {
+    //         // Block 1 & 2
+    //         // uint64_t u0 = ;
+    //         OrderBookEntry_Par e0 = decodePacket_Par(unstuffBits_Par(orderBook[i]));
+    //         acc1 += (int64_t)e0.orderQty * e0.orderValue; 
+
+    //         // uint64_t u1 = unstuffBits_Par(orderBook[i+1]);
+    //         OrderBookEntry_Par e1 = decodePacket_Par(unstuffBits_Par(orderBook[i+1]));
+    //         acc2 += (int64_t)e1.orderQty * e1.orderValue; 
+
+    //         // Block 3 & 4
+    //         // uint64_t u2 = unstuffBits_Par(orderBook[i+2]);
+    //         OrderBookEntry_Par e2 = decodePacket_Par(unstuffBits_Par(orderBook[i+2]));
+    //         acc3 += (int64_t)e2.orderQty * e2.orderValue; 
+
+    //         // uint64_t u3 = unstuffBits_Par(orderBook[i+3]);
+    //         OrderBookEntry_Par e3 = decodePacket_Par(unstuffBits_Par(orderBook[i+3]));
+    //         acc4 += (int64_t)e3.orderQty * e3.orderValue; 
     //     }
         
     //     #pragma omp atomic
-    //     total += local_acc;
+    //     total += (acc1 + acc2 + acc3 + acc4);
     // }
 
-    // // Handle the remainder if the size is odd
-    // if (n % 2 != 0) {
-    //     uint64_t u = unstuffBits_Par(orderBook[n-1]);
+    // // Cleanup loop for remaining elements (n % 4)Q
+    // for (size_t i = (n / 4) * 4; i < n; ++i) {
+    //     uint64_t u = unstuffBits_Par(orderBook[i]);
     //     OrderBookEntry_Par e = decodePacket_Par(u);
-    //     total += (int64_t)e.orderQty * e.orderValue;
+    //     total += (int64_t)e.orderQty * e.orderValue; 
     // }
-
-
-    #pragma omp parallel
-    {
-        // Using two local accumulators can help the CPU avoid dependency stalls
-        int64_t acc1 = 0;
-        int64_t acc2 = 0 , acc3=0, acc4=0;
-
-
-        // Unrolling by 4 for better ILP
-        #pragma omp for schedule(guided) nowait
-        for (size_t i = 0; i < (n / 4) * 4; i += 4) {
-            // Block 1 & 2
-            uint64_t u0 = unstuffBits_Par(orderBook[i]);
-            OrderBookEntry_Par e0 = decodePacket_Par(u0);
-            acc1 += (int64_t)e0.orderQty * e0.orderValue; 
-
-            uint64_t u1 = unstuffBits_Par(orderBook[i+1]);
-            OrderBookEntry_Par e1 = decodePacket_Par(u1);
-            acc2 += (int64_t)e1.orderQty * e1.orderValue; 
-
-            // Block 3 & 4
-            uint64_t u2 = unstuffBits_Par(orderBook[i+2]);
-            OrderBookEntry_Par e2 = decodePacket_Par(u2);
-            acc3 += (int64_t)e2.orderQty * e2.orderValue; 
-
-            uint64_t u3 = unstuffBits_Par(orderBook[i+3]);
-            OrderBookEntry_Par e3 = decodePacket_Par(u3);
-            acc4 += (int64_t)e3.orderQty * e3.orderValue; 
-        }
-        
-        #pragma omp atomic
-        total += (acc1 + acc2 + acc3 + acc4);
-    }
-
-    // Cleanup loop for remaining elements (n % 4)
-    for (size_t i = (n / 4) * 4; i < n; ++i) {
-        uint64_t u = unstuffBits_Par(orderBook[i]);
-        OrderBookEntry_Par e = decodePacket_Par(u);
-        total += (int64_t)e.orderQty * e.orderValue; 
-    }
 
 
     // #pragma omp parallel
@@ -375,18 +279,16 @@ int64_t totalAmountTraded_Par(const std::vector<uint64_t> &orderBook) {
 
 
 
-    // #pragma omp parallel
-    // {
+    #pragma omp parallel
+    {
        
-        
-    //     // Guided scheduling helps if unstuffBits_Par execution time varies per packet
-    //     #pragma omp for schedule(guided) reduction(+:total)
-    //     for (size_t i = 0; i < n; i++) {
-    //         uint64_t u = unstuffBits_Par(orderBook[i]);
-    //         OrderBookEntry_Par e = decodePacket_Par(u);
-    //         total += (int64_t)e.orderQty * e.orderValue;
-    //     }
-    // }
+        #pragma omp for schedule(guided) reduction(+:total)
+        for (size_t i = 0; i < n; i++) {
+            uint64_t u = unstuffBits_Par(orderBook[i]);
+            OrderBookEntry_Par e = decodePacket_Par(u);
+            total += (int64_t)e.orderQty * e.orderValue;
+        }
+    }
 
     return total;
 }
