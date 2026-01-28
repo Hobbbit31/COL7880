@@ -1,0 +1,36 @@
+==============================================
+  PARALLEL vs SEQUENTIAL COMPARISON (-O3)
+==============================================
+Orders: 10000000 | Stocks: 10000
+==============================================
+SEQUENTIAL BASELINE:
+  totalAmountTraded: 943.6569 ms
+  printOrderStats:   1724.2539 ms
+  updateDisplay:     4357.2698 ms
+  TOTAL:             7025.1806 ms
+
+PARALLEL (4 Threads) - Validation: PASS
+  totalAmountTraded: 241.4142 ms (Speedup: 3.90x)
+  printOrderStats:   279.5447 ms (Speedup: 6.16x)
+  updateDisplay:     890.7427 ms (Speedup: 4.89x)
+
+PARALLEL (8 Threads) - Validation: PASS
+  totalAmountTraded: 125.9423 ms (Speedup: 7.49x)
+  printOrderStats:   193.8667 ms (Speedup: 8.89x)
+  updateDisplay:     586.3575 ms (Speedup: 7.43x)
+
+PARALLEL (10 Threads) - Validation: PASS
+  totalAmountTraded: 121.5775 ms (Speedup: 7.76x)
+  printOrderStats:   170.9771 ms (Speedup: 10.08x)
+  updateDisplay:     523.3139 ms (Speedup: 8.32x)
+
+PARALLEL (12 Threads) - Validation: PASS
+  totalAmountTraded: 104.9670 ms (Speedup: 8.99x)
+  printOrderStats:   137.7536 ms (Speedup: 12.51x)
+  updateDisplay:     474.7918 ms (Speedup: 9.17x)
+
+PARALLEL (16 Threads) - Validation: PASS
+  totalAmountTraded: 81.6607 ms (Speedup: 11.55x)
+  printOrderStats:   119.7513 ms (Speedup: 14.39x)
+  updateDisplay:     427.4007 ms (Speedup: 10.19x)
+

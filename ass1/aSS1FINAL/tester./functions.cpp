@@ -1,12 +1,8 @@
 #include "functions.h"
 #include <unordered_map>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
 #include <omp.h>
 #include <numeric>
 #include <memory>
-#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -187,8 +183,7 @@ void printOrderStatsC(const std::vector<uint64_t> &orderBook) {
             
         double avgOrderValue = 0.0;
         if (stock.orderCount > 0) {
-            avgOrderValue = static_cast<double>(stock.sumOrderValue) /
-                            static_cast<double>(stock.orderCount);
+            avgOrderValue = static_cast<double>(stock.sumOrderValue) /  static_cast<double>(stock.orderCount);
         }
             
         uint8_t minSell = stock.hasSellForMin ? stock.minSellValue : 0;
@@ -302,7 +297,7 @@ void updateDisplay(const std::vector<uint64_t> &orderBook, int32_t freq) {
 int64_t totalAmountTraded(const std::vector<uint64_t> &orderBook) {
     int64_t total = 0;
     size_t n = orderBook.size();
-    if(orderBook.size() <= 10000) {
+    if(orderBook.size() <= 5000) {
         return totalAmountTradedC(orderBook);
     }
 
