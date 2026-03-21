@@ -11,5 +11,8 @@ a2: main.cpp
 a2_cuda: main_cuda.cu
 	$(NVCC) $(NVCCFLAGS) -o a2_cuda main_cuda.cu -lm
 
+a2_cuda_opt: main_cuda_opt.cu
+	$(NVCC) $(NVCCFLAGS) -o a2_cuda_opt main_cuda_opt.cu -lm
+
 clean:
 	rm -f a2 a2_cuda knn.txt approx_knn.txt kmeans.txt *.txt
