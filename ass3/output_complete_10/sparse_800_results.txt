@@ -1,0 +1,53 @@
+========================================
+Test case: sparse_800
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/sparse_800.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.00261286 seconds
+Output:
+364
+7 88 533 586
+
+--- np=2 ---
+Execution time: 0.00332075 seconds
+Output:
+364
+7 88 533 586
+
+--- np=3 ---
+Execution time: 0.0042289 seconds
+Output:
+364
+7 88 533 586
+
+--- np=4 ---
+Execution time: 0.00568988 seconds
+Output:
+364
+7 88 533 586
+
+--- np=5 ---
+Execution time: 0.00346837 seconds
+Output:
+364
+7 88 533 586
+
+--- np=6 ---
+Execution time: 0.00349861 seconds
+Output:
+364
+7 88 533 586
+
+--- np=7 ---
+Execution time: 0.00505515 seconds
+Output:
+364
+7 88 533 586
+
+--- np=8 ---
+Execution time: 0.00393341 seconds
+Output:
+364
+7 88 533 586
+

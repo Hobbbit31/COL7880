@@ -1,0 +1,53 @@
+========================================
+Test case: random_200
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/random_200.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.00532112 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=2 ---
+Execution time: 0.00547922 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=3 ---
+Execution time: 0.00572079 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=4 ---
+Execution time: 0.00403922 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=5 ---
+Execution time: 0.00346921 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=6 ---
+Execution time: 0.00254489 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=7 ---
+Execution time: 0.00198116 seconds
+Output:
+625
+49 59 69 97 124 128 178
+
+--- np=8 ---
+Execution time: 0.00259231 seconds
+Output:
+625
+49 59 69 97 124 128 178
+

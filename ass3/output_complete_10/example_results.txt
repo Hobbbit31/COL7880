@@ -1,0 +1,53 @@
+========================================
+Test case: example
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/example.txt
+========================================
+
+--- np=1 ---
+Execution time: 3.8461 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=2 ---
+Execution time: 2.35741 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=3 ---
+Execution time: 1.76658 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=4 ---
+Execution time: 1.37968 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=5 ---
+Execution time: 1.12548 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=6 ---
+Execution time: 0.939241 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=7 ---
+Execution time: 0.849088 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+
+--- np=8 ---
+Execution time: 0.698373 seconds
+Output:
+650
+4 44 46 134 142 152 244 299 321 344 347 353
+

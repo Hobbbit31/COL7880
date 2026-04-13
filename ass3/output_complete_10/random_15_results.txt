@@ -1,0 +1,53 @@
+========================================
+Test case: random_15
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/random_15.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000229649 seconds
+Output:
+98
+9 13
+
+--- np=2 ---
+Execution time: 0.000299128 seconds
+Output:
+98
+9 13
+
+--- np=3 ---
+Execution time: 0.000335497 seconds
+Output:
+98
+9 13
+
+--- np=4 ---
+Execution time: 0.000338723 seconds
+Output:
+98
+9 13
+
+--- np=5 ---
+Execution time: 0.000304308 seconds
+Output:
+98
+9 13
+
+--- np=6 ---
+Execution time: 0.000286505 seconds
+Output:
+98
+9 13
+
+--- np=7 ---
+Execution time: 0.000327391 seconds
+Output:
+98
+9 13
+
+--- np=8 ---
+Execution time: 0.000421126 seconds
+Output:
+98
+9 13
+

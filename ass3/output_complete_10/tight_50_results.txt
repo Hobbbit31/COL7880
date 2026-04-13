@@ -1,0 +1,53 @@
+========================================
+Test case: tight_50
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/tight_50.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000300902 seconds
+Output:
+70
+34
+
+--- np=2 ---
+Execution time: 0.000265406 seconds
+Output:
+70
+34
+
+--- np=3 ---
+Execution time: 0.000312524 seconds
+Output:
+70
+34
+
+--- np=4 ---
+Execution time: 0.00033219 seconds
+Output:
+70
+34
+
+--- np=5 ---
+Execution time: 0.000378146 seconds
+Output:
+70
+34
+
+--- np=6 ---
+Execution time: 0.000357999 seconds
+Output:
+70
+34
+
+--- np=7 ---
+Execution time: 0.000336087 seconds
+Output:
+70
+34
+
+--- np=8 ---
+Execution time: 0.0003316 seconds
+Output:
+70
+34
+

@@ -1,0 +1,53 @@
+========================================
+Test case: example2
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/example2.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.00022016 seconds
+Output:
+13
+2 3
+
+--- np=2 ---
+Execution time: 0.00025831 seconds
+Output:
+13
+2 3
+
+--- np=3 ---
+Execution time: 0.00035978 seconds
+Output:
+13
+2 3
+
+--- np=4 ---
+Execution time: 0.000288877 seconds
+Output:
+13
+2 3
+
+--- np=5 ---
+Execution time: 0.000383624 seconds
+Output:
+13
+2 3
+
+--- np=6 ---
+Execution time: 0.000356313 seconds
+Output:
+13
+2 3
+
+--- np=7 ---
+Execution time: 0.000353127 seconds
+Output:
+13
+2 3
+
+--- np=8 ---
+Execution time: 0.000305608 seconds
+Output:
+13
+2 3
+

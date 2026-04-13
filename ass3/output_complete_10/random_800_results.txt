@@ -1,0 +1,53 @@
+========================================
+Test case: random_800
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/random_800.txt
+========================================
+
+--- np=1 ---
+Execution time: 2.90634 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=2 ---
+Execution time: 1.65911 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=3 ---
+Execution time: 1.22475 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=4 ---
+Execution time: 1.02998 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=5 ---
+Execution time: 0.820712 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=6 ---
+Execution time: 0.670364 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=7 ---
+Execution time: 0.564249 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+
+--- np=8 ---
+Execution time: 0.485728 seconds
+Output:
+829
+252 293 323 330 423 538 602 666 706 786
+

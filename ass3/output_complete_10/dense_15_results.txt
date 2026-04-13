@@ -1,0 +1,53 @@
+========================================
+Test case: dense_15
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/dense_15.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000186215 seconds
+Output:
+221
+8 9 14
+
+--- np=2 ---
+Execution time: 0.000320677 seconds
+Output:
+221
+8 9 14
+
+--- np=3 ---
+Execution time: 0.00038362 seconds
+Output:
+221
+8 9 14
+
+--- np=4 ---
+Execution time: 0.000338689 seconds
+Output:
+221
+8 9 14
+
+--- np=5 ---
+Execution time: 0.000291515 seconds
+Output:
+221
+8 9 14
+
+--- np=6 ---
+Execution time: 0.000343458 seconds
+Output:
+221
+8 9 14
+
+--- np=7 ---
+Execution time: 0.00033301 seconds
+Output:
+221
+8 9 14
+
+--- np=8 ---
+Execution time: 0.000361541 seconds
+Output:
+221
+8 9 14
+

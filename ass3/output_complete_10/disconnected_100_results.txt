@@ -1,0 +1,53 @@
+========================================
+Test case: disconnected_100
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/disconnected_100.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000222273 seconds
+Output:
+98
+63
+
+--- np=2 ---
+Execution time: 0.000339282 seconds
+Output:
+98
+63
+
+--- np=3 ---
+Execution time: 0.000396408 seconds
+Output:
+98
+63
+
+--- np=4 ---
+Execution time: 0.000445739 seconds
+Output:
+98
+63
+
+--- np=5 ---
+Execution time: 0.000535266 seconds
+Output:
+98
+63
+
+--- np=6 ---
+Execution time: 0.000455587 seconds
+Output:
+98
+63
+
+--- np=7 ---
+Execution time: 0.000421695 seconds
+Output:
+98
+63
+
+--- np=8 ---
+Execution time: 0.000493057 seconds
+Output:
+98
+63
+

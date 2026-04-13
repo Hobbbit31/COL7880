@@ -1,0 +1,53 @@
+========================================
+Test case: random_500
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/random_500.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.199201 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=2 ---
+Execution time: 0.118238 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=3 ---
+Execution time: 0.0885808 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=4 ---
+Execution time: 0.0757369 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=5 ---
+Execution time: 0.0602233 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=6 ---
+Execution time: 0.0495112 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=7 ---
+Execution time: 0.04334 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+
+--- np=8 ---
+Execution time: 0.041132 seconds
+Output:
+780
+63 104 105 112 238 262 440 457 496 498
+

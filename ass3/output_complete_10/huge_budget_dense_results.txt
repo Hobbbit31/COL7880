@@ -1,0 +1,53 @@
+========================================
+Test case: huge_budget_dense
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/huge_budget_dense.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000251559 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=2 ---
+Execution time: 0.000342488 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=3 ---
+Execution time: 0.000393222 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=4 ---
+Execution time: 0.000414471 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=5 ---
+Execution time: 0.000506573 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=6 ---
+Execution time: 0.000440089 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=7 ---
+Execution time: 0.000362986 seconds
+Output:
+309
+0 3 4 5 6 7
+
+--- np=8 ---
+Execution time: 0.000468372 seconds
+Output:
+309
+0 3 4 5 6 7
+

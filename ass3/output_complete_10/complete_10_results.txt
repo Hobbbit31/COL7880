@@ -1,0 +1,53 @@
+========================================
+Test case: complete_10
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/complete_10.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000187192 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=2 ---
+Execution time: 0.000307238 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=3 ---
+Execution time: 0.000341502 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=4 ---
+Execution time: 0.000292748 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=5 ---
+Execution time: 0.000374994 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=6 ---
+Execution time: 0.000401211 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=7 ---
+Execution time: 0.000505519 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+
+--- np=8 ---
+Execution time: 0.000510298 seconds
+Output:
+444
+0 1 2 3 4 5 7 8
+

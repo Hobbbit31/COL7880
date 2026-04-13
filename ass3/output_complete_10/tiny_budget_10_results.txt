@@ -1,0 +1,53 @@
+========================================
+Test case: tiny_budget_10
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/tiny_budget_10.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000173614 seconds
+Output:
+100
+0
+
+--- np=2 ---
+Execution time: 0.000383446 seconds
+Output:
+100
+0
+
+--- np=3 ---
+Execution time: 0.0002784 seconds
+Output:
+100
+0
+
+--- np=4 ---
+Execution time: 0.000232545 seconds
+Output:
+100
+0
+
+--- np=5 ---
+Execution time: 0.000334215 seconds
+Output:
+100
+0
+
+--- np=6 ---
+Execution time: 0.000257681 seconds
+Output:
+100
+0
+
+--- np=7 ---
+Execution time: 0.00027852 seconds
+Output:
+100
+0
+
+--- np=8 ---
+Execution time: 0.000324186 seconds
+Output:
+100
+0
+

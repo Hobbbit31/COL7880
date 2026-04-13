@@ -1,0 +1,53 @@
+========================================
+Test case: huge_budget_10
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/huge_budget_10.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000185796 seconds
+Output:
+149
+4 7
+
+--- np=2 ---
+Execution time: 0.000223446 seconds
+Output:
+149
+4 7
+
+--- np=3 ---
+Execution time: 0.000249735 seconds
+Output:
+149
+4 7
+
+--- np=4 ---
+Execution time: 0.000313334 seconds
+Output:
+149
+4 7
+
+--- np=5 ---
+Execution time: 0.000371441 seconds
+Output:
+149
+4 7
+
+--- np=6 ---
+Execution time: 0.000368887 seconds
+Output:
+149
+4 7
+
+--- np=7 ---
+Execution time: 0.000323883 seconds
+Output:
+149
+4 7
+
+--- np=8 ---
+Execution time: 0.00034348 seconds
+Output:
+149
+4 7
+

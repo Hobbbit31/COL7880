@@ -1,0 +1,53 @@
+========================================
+Test case: sparse_50
+Input: /home/hobbbit31/Desktop/parallel/ass3/complete_10/sparse_50.txt
+========================================
+
+--- np=1 ---
+Execution time: 0.000193752 seconds
+Output:
+191
+8 20 47
+
+--- np=2 ---
+Execution time: 0.000488773 seconds
+Output:
+191
+8 20 47
+
+--- np=3 ---
+Execution time: 0.000337611 seconds
+Output:
+191
+8 20 47
+
+--- np=4 ---
+Execution time: 0.000389036 seconds
+Output:
+191
+8 20 47
+
+--- np=5 ---
+Execution time: 0.000455832 seconds
+Output:
+191
+8 20 47
+
+--- np=6 ---
+Execution time: 0.000420326 seconds
+Output:
+191
+8 20 47
+
+--- np=7 ---
+Execution time: 0.000393145 seconds
+Output:
+191
+8 20 47
+
+--- np=8 ---
+Execution time: 0.000507959 seconds
+Output:
+191
+8 20 47
+
